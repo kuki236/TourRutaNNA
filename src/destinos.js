@@ -13,24 +13,26 @@ export function inicializarDestinos(callback) {
       if (!data.length) return alert("Destino no encontrado.");
       const { lat, lon } = data[0];
 
-       const li = document.createElement("li");
-       li.className = "list-group-item";
+      const li = document.createElement("li");
+      li.className = "list-group-item";
 
-       const spanNombre = document.createElement("span"); 
-       spanNombre.textContent = destino;
-       li.appendChild(spanNombre);
+      const spanNombre = document.createElement("span"); 
+      const nombreCorto = data[0].display_name.split(",")[0];
+      spanNombre.textContent = nombreCorto;
+      li.dataset.nombre = nombreCorto;
+      li.appendChild(spanNombre);
 
-       li.dataset.lat = lat;
-       li.dataset.lon = lon;
+      li.dataset.lat = lat;
+      li.dataset.lon = lon;
 
-       const deleteBtn = document.createElement("button");
-       deleteBtn.className = "btn btn-warning botonEliminar";
-       deleteBtn.textContent = "X";
-       deleteBtn.addEventListener("click", () => {
+      const deleteBtn = document.createElement("button");
+      deleteBtn.className = "btn btn-warning botonEliminar";
+      deleteBtn.textContent = "X";
+      deleteBtn.addEventListener("click", () => {
             li.remove();
             const destinos = Array.from(lista.children); 
             callback && callback(destinos); 
-       });
+      });
 
       li.appendChild(deleteBtn);
       lista.appendChild(li);

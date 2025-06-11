@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>TuRutaTour</title>
+    <link rel="icon"  type="image/x-icon" href="logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+
+</head>
+<body>
+
+    <div class="section inicio">
+        <div class="container contInicio">
+            <div class="row">
+                <div class="h1 titulo">Planifica tu Ruta Turística Ideal</div>
+            </div>
+            <div class="row">
+                <div class="h2 descripcion">Descubre la forma mas eficiente de visitar todos tus lugares favoritos.</div>
+                <div class="h2 descripcion">Añade tus destinos y deja que nosotros optimicemos tu recorrido.</div>
+            </div>
+            <div class="row inputR">
+                <div class="col-1 icono">
+                 <i class="bi bi-search"></i>
+                </div>
+                <div class="col-8">
+                    <div class="form-floating mb-3 shadow rounded">
+                   
+                    <input type="email" class="form-control" id="floatingInput" placeholder="">
+                     
+                    <label for="floatingInput">Punto de Partida</label>
+                    </div>
+                </div>
+                <div class="col-1">
+                   <a class="btn btn-primary" href="#seccionResultado" id="btnEmpezar">Empezar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section mapa" id="seccionResultado">
+            <div class="alert alert-primary oculto" id="alerta" role="alert">
+              Ocurrio un error en la busqueda
+            </div>
+        <div class="container">
+            <div class="row">
+                <div class="container contenedorDestinos">
+                    <div class="row">
+                        <div class="col-10">
+                            <input class="form-control" type="text" placeholder="Destino a visitar" aria-label="default input example" id="inputDestino">
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn btn-danger" id="botonAnadir">Añadir</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <ul class="list-group" id="listaDestinos">
+ 
+                            </ul>
+                    </div>
+
+                    <div class="row">
+                        <div class="card " style="width: 20rem;" id="cartaOptima" >
+                            <div class="card-body">
+                                <h5 class="card-title">Ruta Óptima</h5>
+                                <p class="card-text" id="textoRuta"></p>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div id="mapa" style="height: 500px;"></div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="/src/main.js"></script>
+
+</body>
+</html>

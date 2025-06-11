@@ -1,0 +1,76 @@
+.inicio {
+    background-color: #8b6f55;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo{
+   font-size: 2.5rem;
+   font-family: "Rubik Dirt", system-ui;
+   color:white;
+   text-align: center;
+   font-weight: bold;
+}
+.descripcion{
+   font-size: 1.5rem;
+   font-family: "Rubik Dirt", system-ui;
+   color:white;
+   text-align: center;
+}
+.contInicio {
+    text-align: center;
+}
+.icono{
+    color: white;
+    font-size: 3rem;
+}
+.inputR{
+    margin-top: 3rem;
+    justify-content: center;
+}
+.mapa {
+    padding: 20px 0;
+}
+
+#mapa {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.oculto{
+    display: none;
+}
+.contenedorDestinos{
+    max-width: 320px;
+    justify-content: start;
+}
+#listaDestinos{
+    margin-top: 10%;
+}
+#butonCalcular{
+    margin-top: 5%;
+}
+#btnEmpezar {
+   background-color: #BF6F41;
+   color: white;
+   font-weight: bold;
+   border: none;
+   padding: 12px 24px;
+   border-radius: 8px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+#cartaOptima {
+  display: none;
+  margin-top: 7%;
+}
+
+.oculto {
+  display: none;
+}
+.botonEliminar{
+    margin-left: 5%;
+    font-weight: bold;
+}

@@ -3,7 +3,9 @@ import * as L from 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet-src.
 let map;
 let puntoPartidaMarker = null;
 let rutaLayer = null;
-const ORS_API_KEY = '5b3ce3597851110001cf62486e6c18c68a304e3693fa9d47b76be2c1';
+export const ORS_API_KEY = '5b3ce3597851110001cf62486e6c18c68a304e3693fa9d47b76be2c1';
+
+
 const coloresMarcadores = [
   'red', 'blue', 'green', 'orange', 'purple', 'darkred', 'cadetblue', 'darkgreen',
   'darkblue', 'darkpurple', 'pink', 'lightblue', 'lightgreen', 'gray', 'black',

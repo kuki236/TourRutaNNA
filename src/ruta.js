@@ -1,4 +1,6 @@
-import { mostrarPuntoDePartida, mostrarRutaOptima, trazarRutaORS  } from './mapas.js';
+import { mostrarPuntoDePartida, mostrarRutaOptima, trazarRutaORS, ORS_API_KEY } from './mapas.js';
+
+
 
 let puntoPartida = null;
 let destinos = [];
@@ -40,6 +42,39 @@ export async function manejarPuntoPartida(lugar) {
 }
 
 
+async function obtenerDistanciasMatrix(puntoActual, noVisitados) {
+  const url = `https://api.openrouteservice.org/v2/matrix/driving-car`;
+  const body = {
+    locations: [
+      [puntoActual.lon, puntoActual.lat],
+      ...noVisitados.map(destino => [destino.lon, destino.lat])
+    ],
+    metrics: ['distance'],
+    units: 'km'
+  };
+
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': ORS_API_KEY
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (!res.ok) {
+      throw new Error(`Error ${res.status}: No se pudo obtener la matriz de distancias.`);
+    }
+
+    const data = await res.json();
+    return data.distances[0].slice(1); // Distancias desde puntoActual a noVisitados
+  } catch (error) {
+    console.error("Error en la matriz de distancias:", error.message);
+    throw error;
+  }
+}
+
 export async function calcularRutaOptima(listaDestinos = null) {
   if (listaDestinos) {
     destinos = listaDestinos.map(li => ({
@@ -65,53 +100,35 @@ export async function calcularRutaOptima(listaDestinos = null) {
   const destinosOmitidos = [];
 
   while (noVisitados.length > 0) {
-    let menorDistancia = Infinity;
-    let destinoMasCercano = null;
-    let indiceCercano = -1;
+    try {
+      const distancias = await obtenerDistanciasMatrix(actual, noVisitados);
+      let menorDistancia = Infinity;
+      let destinoMasCercano = null;
+      let indiceCercano = -1;
 
-    for (let index = 0; index < noVisitados.length; index++) {
-      const destino = noVisitados[index];
-      try {
-        await trazarRutaORS(actual, destino, false); // solo prueba de conexión
-
-        const distancia = calcularDistancia(
-          actual.lat,
-          actual.lon,
-          destino.lat,
-          destino.lon
-        );
-
-        if (distancia < menorDistancia) {
+      distancias.forEach((distancia, index) => {
+        if (distancia !== null && distancia < menorDistancia) {
           menorDistancia = distancia;
-          destinoMasCercano = destino;
+          destinoMasCercano = noVisitados[index];
           indiceCercano = index;
         }
-      } catch (e) {
-        console.warn(`No se pudo conectar con ${destino.nombre}. Eliminando de la lista.`);
+      });
 
-        // Elimina del DOM
-        const li = document.querySelector(
-          `#listaDestinos li[data-nombre="${destino.nombre}"]`
-        );
-        if (li) li.remove();
-
-        // Elimina del array de destinos general
-        destinos = destinos.filter(d => d.nombre !== destino.nombre);
-        noVisitados.splice(index, 1);
-        index--; // retrocede porque quitaste un elemento
-
-        // Guarda en lista de omitidos
-        destinosOmitidos.push(destino);
+      if (destinoMasCercano) {
+        // Verificar conexión con trazarRutaORS solo para el destino más cercano
+        await trazarRutaORS(actual, destinoMasCercano, false);
+        ruta.push(destinoMasCercano);
+        actual = destinoMasCercano;
+        noVisitados.splice(indiceCercano, 1);
+      } else {
+        // No hay destinos conectables
+        destinosOmitidos.push(...noVisitados);
+        noVisitados = [];
       }
-    }
-
-    if (destinoMasCercano) {
-      ruta.push(destinoMasCercano);
-      actual = destinoMasCercano;
-      noVisitados.splice(indiceCercano, 1);
-    } else {
-      // No se encontró ningún destino conectable desde el actual
-      break;
+    } catch (error) {
+      console.warn("Error al calcular distancias o conectar destinos:", error.message);
+      destinosOmitidos.push(...noVisitados);
+      noVisitados = [];
     }
   }
 
@@ -127,22 +144,19 @@ export async function calcularRutaOptima(listaDestinos = null) {
 
   mostrarRutaOptima(rutaConNombres);
 
-  // Mostrar alerta visual si hubo destinos omitidos
   if (destinosOmitidos.length > 0) {
+    const alertaConexion = document.getElementById("alertaConexion");
     if (alertaConexion) {
       alertaConexion.classList.remove("oculto");
       alertaConexion.innerHTML = `
-        <strong>¡Atención!</strong> Se eliminó el siguiente destino porque no tiene ruta disponible:<br>
+        <strong>¡Atención!</strong> Se eliminaron los siguientes destinos porque no tienen ruta disponible:<br>
         ${destinosOmitidos.map(d => d.nombre).join(", ")}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       `;
-    }
-
-    setTimeout(() => {
-      if (alertaConexion) {
+      setTimeout(() => {
         alertaConexion.classList.add("oculto");
-      }
-    }, 6000);
+      }, 6000);
+    }
   }
 }
 

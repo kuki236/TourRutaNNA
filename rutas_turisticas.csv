@@ -1,0 +1,101 @@
+Ruta_ID,Continente,Pais,Nombre_Ruta,Punto_1,Punto_2,Punto_3,Punto_4,Punto_5
+R001,Europa,Francia,Ruta Parisina,Museo del Louvre,Jardín de las Tullerías,Torre Eiffel,Arco del Triunfo,Montmartre
+R002,Europa,Francia,Ruta de Provenza,Jardines de Vaucluse,Palacio de los Papas,Campos de Lavanda,Calanques de Marsella,Fort Saint-Jean
+R003,Europa,Francia,Ruta Normanda,Monte Saint-Michel,Catedral de Rouen,Playa de Omaha,Memorial de Caen,Jardines de Giverny
+R004,Europa,España,Ruta Andaluza,Alhambra de Granada,Mezquita de Córdoba,Alcázar de Sevilla,Plaza de España,Giralda
+R005,Europa,España,Ruta Catalana,Sagrada Familia,Parque Güell,Casa Batlló,Monasterio de Montserrat,Palau de la Música Catalana
+R006,Europa,España,Ruta Vasca,Guggenheim Bilbao,San Juan de Gaztelugatxe,Plaza Nueva,Basílica de Begoña,Monte Urgull
+R007,Europa,Italia,Ruta Romana,Coliseo,Foro Romano,Panteón,Fontana di Trevi,Plaza Navona
+R008,Europa,Italia,Ruta Toscana,Catedral de Florencia,Torre de Pisa,Plaza del Campo,Puente Vecchio,Palazzo Pitti
+R009,Europa,Italia,Ruta Veneciana,Plaza de San Marcos,Gran Canal,Puente de Rialto,Palazzo Ducale,Basilica di Santa Maria Gloriosa
+R010,América del Norte,Estados Unidos,Ruta de California,Golden Gate Bridge,Parque Nacional Yosemite,Hollywood Sign,Malibu Beach,Parque Balboa
+R011,América del Norte,Estados Unidos,Ruta Noreste,Estatua de la Libertad,Central Park,Faneuil Hall,Acadia National Park,Old North Church
+R012,América del Norte,Estados Unidos,Ruta Sureña,The French Quarter,Universal Studios Orlando,Savannah Historic District,Charleston Battery,Graceland
+R013,Asia,China,Ruta Imperial,Ciudad Prohibida,Gran Muralla,Templo del Cielo,Guerreros de Terracota,Jardines de Suzhou
+R014,Asia,China,Ruta del Sur,Cueva de la Flauta de Caña,Colinas de Yangshuo,Torre del Tambor,Victoria Peak,Jardín Nan Lian
+R015,Asia,China,Ruta del Yangtze,Bund de Shanghai,Templo Jing'an,Tres Gargantas,Jardín Yuyuan,Monte Tai
+R016,Asia,Japón,Ruta de Kioto,Templo Kinkaku-ji,Fushimi Inari,Bosque de Bambú de Arashiyama,Castillo Nijo,Templo Ginkaku-ji
+R017,Asia,Japón,Ruta de Tokio,Templo Senso-ji,Cruce de Shibuya,Torre de Tokio,Parque Ueno,Jardín Shinjuku Gyoen
+R018,Asia,Japón,Ruta de Hiroshima,Parque de la Paz,Miyajima Torii,Castillo de Hiroshima,Jardín Shukkeien,Monte Misen
+R019,Asia,Tailandia,Ruta de Bangkok,Gran Palacio,Templo del Buda Esmeralda,Templo Wat Arun,Mercado Flotante,Jim Thompson House
+R020,Asia,Tailandia,Ruta del Norte,Templo Blanco,Triángulo de Oro,Templo Azul,Doi Suthep,Pueblo de Pai
+R021,Asia,Tailandia,Ruta Costera,Ao Nang,Railay Beach,Templo de la Cueva del Tigre,Koh Phi Phi,Koh Lanta
+R022,Europa,Reino Unido,Ruta Londinense,Torre de Londres,Palacio de Buckingham,Big Ben,British Museum,Hyde Park
+R023,Europa,Reino Unido,Ruta Escocesa,Castillo de Edimburgo,Lago Ness,Ben Nevis,Catedral de Glasgow,Kelvingrove Museum
+R024,Europa,Alemania,Ruta Bávara,Neuschwanstein,Marienplatz,Residenz de Múnich,Oktoberfest Grounds,Englischer Garten
+R025,Europa,Alemania,Ruta del Norte,Puerta de Brandeburgo,Mauerpark,Catedral de Berlín,Sanssouci,Hamburger Kunsthalle
+R026,América del Norte,México,Ruta Yucateca,Chichen Itza,Uxmal,Cenote Ik Kil,Tulum Ruinas,Reserva de Sian Ka'an
+R027,América del Norte,México,Ruta Colonial,Templo Mayor,Catedral Metropolitana,Palacio de Bellas Artes,Chapultepec,Zócalo de Puebla
+R028,Asia,Turquía,Ruta de Estambul,Santa Sofía,Mezquita Azul,Gran Bazar,Palacio Topkapi,Cisterna Basílica
+R029,Asia,Turquía,Ruta de Capadocia,Göreme Open Air Museum,Valle de las Chimeneas,Pasabag,Valle Rojo,Ciudad Subterránea de Derinkuyu
+R030,Asia,India,Ruta del Rajastán,Taj Mahal,Fuerte Amber,Palacio de los Vientos,Ciudad Azul de Jodhpur,Mehrangarh Fort
+R031,Asia,India,Ruta del Norte,Templo Dorado,McLeod Ganj,Hawa Mahal,Chandni Chowk,Fuerte Rojo
+R032,Oceanía,Australia,Ruta de Sídney,Ópera de Sídney,Harbour Bridge,Bondi Beach,Real Jardín Botánico,Taronga Zoo
+R033,Oceanía,Australia,Ruta del Outback,Uluru,Kings Canyon,Alice Springs Telegraph Station,West MacDonnell Ranges,Ayers Rock
+R034,África,Marruecos,Ruta Imperial,Medina de Fez,Jardines de Menara,Palacio Bahía,Mezquita Kutubía,Plaza Jemaa el-Fna
+R035,África,Sudáfrica,Ruta del Cabo,Table Mountain,Boulders Beach,Kirstenbosch Gardens,Robben Island,Cape Point
+R036,África,Kenia,Ruta Safari,Maasai Mara,Lago Nakuru,Parque Amboseli,Tsavo East,Nairobi National Park
+R037,América del Sur,Perú,Ruta Costera Limeña,Parque de las Leyendas,Costa Verde,Larcomar,Parque Kennedy,Pantanos de Villa
+R038,América del Sur,Bolivia,Ruta del Altiplano,Salar de Uyuni,Laguna Colorada,Valle de la Luna,Catedral de La Paz,Tiwanaku
+R039,América del Sur,Chile,Ruta Patagónica,Torres del Paine,Valle de la Luna,Desierto de Atacama,Moai de Isla de Pascua,Cerro San Cristóbal
+R040,Oceanía,Nueva Zelanda,Ruta Isla Sur,Milford Sound,Tongariro Crossing,Fiordland National Park,Lake Wakatipu,Abel Tasman
+R041,África,Egipto,Ruta del Nilo,Pirámides de Giza,Esfinge,Templo de Karnak,Valle de los Reyes,Templo de Abu Simbel
+R042,Asia,Vietnam,Ruta Cultural,Bahía de Ha Long,Templo de la Literatura,Mausoleo de Ho Chi Minh,Puente Huc,Pagoda del Perfume
+R043,Asia,Indonesia,Ruta de Java,Borobudur,Prambanan,Monte Bromo,Cueva de Jomblang,Palacio del Sultán
+R044,Asia,Indonesia,Ruta de Bali,Templo Uluwatu,Arrozales de Tegalalang,Pura Tanah Lot,Monkey Forest,Gunung Batur
+R045,América del Sur,Argentina,Ruta Patagónica,Glaciar Perito Moreno,Parque Los Glaciares,Monte Fitz Roy,Cueva de las Manos,Ushuaia
+R046,América del Sur,Brasil,Ruta Carioca,Cristo Redentor,Pan de Azúcar,Parque Lage,Maracaná,Playa de Copacabana
+R047,África,Túnez,Ruta Histórica,Anfiteatro de El Jem,Medina de Túnez,Cartago,Museo del Bardo,Sidi Bou Said
+R048,África,Namibia,Ruta del Desierto,Sossusvlei,Deadvlei,Parque Namib-Naukluft,Spitzkoppe,Twyfelfontein
+R049,África,Etiopía,Ruta Histórica,Iglesias de Lalibela,Castillo de Gondar,Obelisco de Axum,Monasterio Debre Damo,Simien Mountains
+R050,Oceanía,Fiji,Ruta Costera,Sabeto Hot Springs,Cloud 9,Sri Siva Subramaniya Temple,Garden of the Sleeping Giant,Sigatoka Sand Dunes
+R051,Asia,Corea del Sur,Ruta de Seúl,Palacio Gyeongbokgung,Myeongdong,Bukchon Hanok Village,Torre N Seoul,Parque Yeouido
+R052,Asia,Malasia,Ruta Peninsular,Torres Petronas,Batu Caves,Templo Thean Hou,Fort Cornwallis,Cameron Highlands
+R053,América del Norte,Canadá,Ruta de las Rocosas,Banff National Park,Lake Louise,Moraine Lake,Jasper National Park,Columbia Icefield
+R054,Europa,Portugal,Ruta Lisboeta,Torre de Belém,Monasterio de los Jerónimos,Plaza del Comercio,Castillo de San Jorge,Alfama
+R055,Europa,Grecia,Ruta Continental,Acrópolis,Partenón,Templo de Zeus,Monasterios de Meteora,Antiguo Ágora
+R056,Europa,Croacia,Ruta Dálmata,Murallas de Dubrovnik,Palacio Diocleciano,Parque Nacional Krka,Plitvice Lakes,Fortaleza de Klis
+R057,África,Ghana,Ruta Cultural,Castillo de Cape Coast,Fuerte de Elmina,Parque Nacional Kakum,Lago Volta,Mercado Kejetia
+R058,América del Sur,Colombia,Ruta Andina,Plaza de Bolívar,Cerro Monserrate,Valle de Cocora,Parque Tayrona,Catedral de Sal
+R059,América del Sur,Ecuador,Ruta Andina,Mitad del Mundo,Otavalo Market,Quilotoa Lagoon,Baños Swing,Ingapirca
+R060,Asia,Filipinas,Ruta de Luzón,Arrozales de Banaue,Volcán Mayon,Intramuros,Vigan Heritage Village,Sagada Hanging Coffins
+R061,Asia,Sri Lanka,Ruta Cultural,Templo del Diente,Sigiriya Rock,Dambulla Cave Temple,Ella Rock,Nine Arch Bridge
+R062,África,Argelia,Ruta del Sahara,Tassili n'Ajjer,Timimoun Oasis,Ghardaia,Assekrem,Tamanrasset
+R063,África,Madagascar,Ruta del Sur,Avenida de los Baobabs,Isalo National Park,Tsingy de Bemaraha,Andasibe,Ifaty Beach
+R064,Oceanía,Papúa Nueva Guinea,Ruta de las Tierras Altas,Mount Hagen Cultural Show,Tari Valley,Goroka Show,Sepik River,Kokoda Track
+R065,Asia,Uzbekistán,Ruta de la Seda,Registán,Arco de Bujará,Gur-e-Amir,Shah-i-Zinda,Itchan Kala
+R066,Asia,Mongolia,Ruta Esteparia,Monasterio de Erdene Zuu,Gorkhi-Terelj,Desierto de Gobi,Orkhon Valley,Flaming Cliffs
+R067,Europa,Polonia,Ruta Histórica,Castillo de Wawel,Plaza del Mercado,Minas de Sal de Wieliczka,Auschwitz-Birkenau,Castillo de Malbork
+R068,Europa,República Checa,Ruta Bohemia,Prague Castle,Puente de Carlos,Plaza de Wenceslao,Kutna Hora Bone Church,Český Krumlov Castle
+R069,Europa,Hungría,Ruta Cultural,Parlamento de Budapest,Bastiòn de los Pescadores,Balneario Széchenyi,Castillo de Buda,Ópera de Budapest
+R070,América del Norte,Costa Rica,Ruta Natural,Volcán Arenal,Monteverde Cloud Forest,Manuel Antonio National Park,Tortuguero Canals,Rio Celeste
+R071,América del Sur,Uruguay,Ruta Costera,Casapueblo,Playa Mansa,La Mano de Punta del Este,Fortaleza de Santa Teresa,Barra de Valizas
+R072,África,Senegal,Ruta Cultural,Isla de Gorée,Mausoleo de Touba,Mercado Sandaga,Lago Rosa,Parque Niokolo-Koba
+R073,Asia,Jordania,Ruta Histórica,Petra,Monte Nebo,Madaba Map,Jerash Ruins,Wadi Rum
+R074,Asia,Líbano,Ruta Cultural,Ruinas de Baalbek,Byblos Castle,Jeita Grotto,Qadisha Valley,Beirut Souks
+R075,Asia,Nepal,Ruta del Himalaya,Pashupatinath,Boudhanath,Durbar Square Pokhara,Phewa Lake,Chitwan National Park
+R076,Europa,Países Bajos,Ruta Clásica,Museo Van Gogh,Rijksmuseum,Casa de Ana Frank,Vondelpark,Keukenhof
+R077,Europa,Bélgica,Ruta Cultural,Atomium,Grand Place,Manneken Pis,Catedral de San Miguel,Canales de Brujas
+R078,Europa,Suiza,Ruta Alpina,Kapellbrücke,Château de Chillon,Matterhorn Glacier Paradise,Jungfraujoch,Lago Lemán
+R079,África,Botswana,Ruta Safari,Okavango Delta,Chobe National Park,Moremi Game Reserve,Tsodilo Hills,Makgadikgadi Pans
+R080,América del Sur,Paraguay,Ruta Histórica,Misión Jesuítica de Trinidad,Pantanal Paraguayo,Catedral de Asunción,Lopez Palace,Costanera de Encarnación
+R081,Oceanía,Vanuatu,Ruta de las Islas,Mount Yasur,Blue Hole,Mele Cascades,Port Vila Market,Champagne Beach
+R082,Asia,Georgia,Ruta Caucásica,Svetitskhoveli,Gelati Monastery,Ananuri Fortress,Uplistsikhe,Vardzia
+R083,Asia,Armenia,Ruta Histórica,Geghard Monastery,Garni Temple,Tatev Monastery,Lake Sevan,Noravank
+R084,Europa,Noruega,Ruta de los Fiordos,Trolltunga,Preikestolen,Fiordo de Geiranger,Bryggen,Flåm Railway
+R085,Europa,Finlandia,Ruta Nórdica,Fortaleza de Suomenlinna,Catedral de Helsinki,Santa Claus Village,Lapland Glass Igloos,Lake Saimaa
+R086,Europa,Suecia,Ruta Escandinava,Vasa Museum,Gamla Stan,Skansen,Abisko National Park,Icehotel
+R087,África,Mozambique,Ruta Costera,Ilha de Moçambique,Bazaruto Archipelago,Quirimbas Islands,Tofo Beach,Maputo Elephant Reserve
+R088,África,Tanzania,Ruta Safari,Serengeti National Park,Ngorongoro Crater,Mount Kilimanjaro,Stone Town,Zanzibar Beaches
+R089,América del Sur,Venezuela,Ruta Andina,Ángel Falls,Gran Sabana,Mérida Cable Car,Chorro de Indio,Colonia Tovar
+R090,Asia,Camboya,Ruta Histórica,Angkor Wat,Bayon Temple,Ta Prohm,Phnom Bakheng,Banteay Srei
+R091,Asia,Laos,Ruta Cultural,Kuang Si Falls,Pha That Luang,Wat Xieng Thong,Buddha Park,Pak Ou Caves
+R092,Asia,Myanmar,Ruta Cultural,Shwedagon Pagoda,Bagan Temples,U Bein Bridge,Inle Lake Floating Gardens,Mount Popa
+R093,América del Norte,Guatemala,Ruta Maya,Tikal,Antigua Guatemala,Lake Atitlán,Semuc Champey,Chichicastenango Market
+R094,América del Norte,Honduras,Ruta Cultural,Copán Ruinas,Lago de Yojoa,Pulhapazank Waterfall,Fortaleza San Fernando,Roatán Coral Reef
+R095,África,Zambia,Ruta Safari,Victoria Falls,South Luangwa National Park,Lower Zambezi,Kafue National Park,Lake Kariba
+R096,África,Zimbabue,Ruta Natural,Victoria Falls,Hwange National Park,Great Zimbabwe Ruins,Mana Pools,Matobo National Park
+R097,Oceanía,Tonga,Ruta de las Islas,Ha’amonga ‘a Maui,Anahulu Cave,Mapu’a Vaea Blowholes,Talamahu Market,‘Eua National Park
+R098,Asia,Kazajistán,Ruta de la Estepa,Charyn Canyon,Medeu Skating Rink,Big Almaty Lake,Turkestan Mausoleum,Ascension Cathedral
+R099,Asia,Kirguistán,Ruta de las Montañas,Ala Archa National Park,Song-Kul Lake,Alai Region,Jeti-Ögüz,Tash Rabat
+R100,Europa,Rumanía,Ruta Transilvana,Castillo de Bran,Castillo de Peles,Fortaleza de Rasnov,Sighisoara Citadel,Salina peru

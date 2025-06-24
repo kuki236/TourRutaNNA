@@ -78,4 +78,168 @@ html {
     margin-left: 5%;
     font-weight: bold;
 }
+.botonContinente{
+    margin-top: 10px;
+    margin-left: 40%;
+    color: black;
+    background-color: #D5E6A3;
+    border: #042940;
+}
+/* Posicionamiento del contenedor del carrusel */
+.carousel-item {
+    position: relative; /* Contexto para posicionamiento absoluto de los botones */
+}
 
+/* Estilo del botón */
+.botonContinente {
+    /* Posicionamiento sobre la imagen */
+    position: absolute;
+    bottom: 20px; /* Distancia desde la parte inferior */
+    left: 12.5%; /* Centrado horizontal */
+    transform: translateX(-50%); /* Corrige el centrado */
+    z-index: 10; /* Por encima de la imagen */
+
+    /* Estilo del botón animado */
+    width: 200px;
+    height: 70px;
+    background: linear-gradient(to left top, #c32c71 50%, #b33771 50%);
+    border-style: none;
+    color: #fff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo de los spans para las animaciones de los bordes */
+.botonContinente span {
+    position: absolute;
+    display: block;
+}
+
+.botonContinente span:nth-child(1) {
+    height: 3px;
+    width: 200px;
+    top: 0;
+    left: -200px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span1 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes span1 {
+    0% { left: -200px; }
+    100% { left: 200px; }
+}
+
+.botonContinente span:nth-child(2) {
+    height: 70px;
+    width: 3px;
+    top: -70px;
+    right: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #f6e58d);
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span2 2s linear infinite;
+    animation-delay: 2s;
+}
+
+@keyframes span2 {
+    0% { top: -70px; }
+    100% { top: 70px; }
+}
+
+.botonContinente span:nth-child(3) {
+    height: 3px;
+    width: 200px;
+    right: -200px;
+    bottom: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0), #f6e58d);
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    animation: span3 2s linear infinite;
+    animation-delay: 3s;
+}
+
+@keyframes span3 {
+    0% { right: -200px; }
+    100% { right: 0; }
+}
+
+.botonContinente span:nth-child(4) {
+    height: 70px;
+    width: 3px;
+    bottom: -70px;
+    left: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+    animation: span4 2s linear infinite;
+    animation-delay: 4s;
+}
+
+@keyframes span4 {
+    0% { bottom: -70px; }
+    100% { bottom: 70px; }
+}
+
+/* Efecto hover */
+.botonContinente:hover {
+    transform: translateX(-50%) rotate(-3deg) scale(1.1); /* Mantiene el centrado */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+.botonContinente:hover span {
+    animation-play-state: paused;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .botonContinente {
+        width: 150px;
+        height: 50px;
+        font-size: 18px;
+        bottom: 10px;
+    }
+    .botonContinente span:nth-child(1),
+    .botonContinente span:nth-child(3) {
+        width: 150px;
+    }
+    .botonContinente span:nth-child(2),
+    .botonContinente span:nth-child(4) {
+        height: 50px;
+    }
+    .botonContinente span:nth-child(1) {
+        left: -150px;
+    }
+    .botonContinente span:nth-child(3) {
+        right: -150px;
+    }
+    .botonContinente span:nth-child(2) {
+        top: -50px;
+    }
+    .botonContinente span:nth-child(4) {
+        bottom: -50px;
+    }
+}
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

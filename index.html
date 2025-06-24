@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap" rel="stylesheet">
+
+
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
@@ -37,6 +40,11 @@
                 </div>
                 <div class="col-1">
                     <a class="btn btn-primary" href="#seccionResultado" id="btnEmpezar">Empezar</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button type="button" class="btn btn-warning btn-lg">Ver Rutas Famosas</button>
                 </div>
             </div>
         </div>
@@ -76,6 +84,60 @@
             </div>
         </div>  
     </div>
+<div class="section rutasFamosas oculto" id="seccionRutasFamosas">
+    <div class="container">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="7000">
+                    <img src="./jpgCarousel/americaDelNorte.jpg" class="d-block w-100" alt="América Del Norte">
+                    <button type="button" class="botonContinente" data-continente="América del Norte">América Del Norte
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                </div>
+                <div class="carousel-item" data-bs-interval="7000">
+                    <img src="./jpgCarousel/americaDelSur.jpg" class="d-block w-100 imageTamano" alt="América Del Sur">
+                    <button type="button" class="botonContinente" data-continente="América del Sur">América Del Sur
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                </div>
+                <div class="carousel-item" data-bs-interval="7000">
+                    <img src="./jpgCarousel/asia.jpg" class="d-block w-100 imageTamano" alt="Asia">
+                    <button type="button" class="botonContinente" data-continente="Asia">Asia
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                </div>
+                <div class="carousel-item" data-bs-interval="7000">
+                    <img src="./jpgCarousel/Europaa.jpg" class="d-block w-100 imageTamano" alt="Europa">
+                    <button type="button" class="botonContinente" data-continente="Europa">Europa
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                </div>
+                <div class="carousel-item" data-bs-interval="7000">
+                    <img src="./jpgCarousel/africa1.jpg" class="d-block w-100" alt="África">
+                    <button type="button" class="botonContinente" data-continente="África">África
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                </div>
+                <div class="carousel-item" data-bs-interval="7000">
+                    <img src="./jpgCarousel/oceania.jpg" class="d-block w-100 imageTamano" alt="Oceanía">
+                    <button type="button" class="botonContinente" data-continente="Oceanía">Oceanía
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="row mt-4" id="contenedorRutasFamosas"></div>
+    </div>
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script type="module" src="./src/main.js"></script>

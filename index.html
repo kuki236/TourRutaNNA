@@ -44,14 +44,16 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <button type="button" class="btn btn-warning btn-lg">Ver Rutas Famosas</button>
+                    <a  href="#seccionRutasFamosas" id="botonRutaFamosas">
+                      <button type="button" class="btn btn-warning btn-lg">Ver Rutas Famosas</button>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="alert alert-warning alert-dismissible fade show oculto" id="alertaConexion" role="alert"></div>
+    <div class="alert alert-warning alert-dismissible fade show oculta" id="alertaConexion" role="alert"></div>
     <div class="section mapa" id="seccionResultado">
-            <div class="alert alert-primary oculto" id="alerta" role="alert">
+            <div class="alert alert-primary oculta" id="alerta" role="alert">
                 Ocurrio un error en la busqueda
             </div>
         <div class="container">
@@ -84,9 +86,9 @@
             </div>
         </div>  
     </div>
-<div class="section rutasFamosas oculto" id="seccionRutasFamosas">
-    <div class="container">
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+<div class="section rutasFamosas oculta" id="seccionRutasFamosas">
+    <div class="container" >
+        <div id="carouselExampleInterval" class="carousel slide" id="carouselImagenes" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="7000">
                     <img src="./jpgCarousel/americaDelNorte.jpg" class="d-block w-100" alt="América Del Norte">
@@ -137,9 +139,27 @@
         <div class="row mt-4" id="contenedorRutasFamosas"></div>
     </div>
 </div>
+<div class="section mapaRutaFamosa oculta" id="mapaRutaFamosa">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="card" style="width: 20rem;" id="cartaOptimaFamosa">
+                    <div class="card-body">
+                        <h5 class="card-title">Ruta Óptima</h5>
+                        <p class="card-text" id="textoRutaFamosa"></p>
+                    </div>
+                </div>
+                <button class="btn btn-secondary mt-3" id="btnSeguirExplorando">Seguir explorando rutas famosas</button>
+            </div>
+            <div class="col-8">
+                <div id="mapaFamosa" style="height: 500px;"></div>
+                <div id="leyendaColoresFamosa" class="mt-3 p-2 border rounded bg-light"></div>
+            </div>
+        </div>
+    </div>
+</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script type="module" src="./src/main.js"></script>
 </body>
 </html>

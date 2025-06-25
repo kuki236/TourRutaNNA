@@ -42,9 +42,7 @@ html {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.oculto{
-    display: none;
-}
+
 .contenedorDestinos{
     max-width: 320px;
     justify-content: start;
@@ -71,7 +69,8 @@ html {
   margin-top: 7%;
 }
 
-.oculto {
+
+.oculta {
   display: none;
 }
 .botonEliminar{
@@ -242,4 +241,43 @@ html {
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.cartaRuta{
+    margin: 1.5rem;
+}
+.cartaRuta:hover {
+    cursor: pointer;
+    background-color: #042940;
+    color: whitesmoke;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cartaRuta:hover .btn-ver-ruta {
+
+    background-color: #d6eacc;         
+    color: black;                       
+
+}
+.btn-ver-ruta {
+    margin-left: 20%;
+    background-color: white;            
+    border: 2px solid #006400;       
+    color: #006400;                    
+    font-weight: bold;
+    padding: 10px 20px;               
+    cursor: pointer;                    
+    border-radius: 5px;                  
+}
+
+#contenedorRutasFamosas{
+    justify-content: center;    
+    padding: 40px 0;
+    background-color: #f8f9fa;
+}
+.mapaRutaFamosa {
+    padding: 40px 0;
+}
+
+#btnSeguirExplorando {
+    width: 20rem;
 }

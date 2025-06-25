@@ -19,7 +19,7 @@ export async function manejarPuntoPartida(lugar) {
     const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(lugar)}`);
     const data = await res.json();
     if (!data.length) {
-      document.getElementById("alerta").classList.remove("oculto");
+      document.getElementById("alerta").classList.remove("oculta");
       return;
     }
 
@@ -33,11 +33,11 @@ export async function manejarPuntoPartida(lugar) {
     };
 
     mostrarPuntoDePartida(puntoPartida.lat, puntoPartida.lon);
-    document.getElementById("alerta").classList.add("oculto");
+    document.getElementById("alerta").classList.add("oculta");
     document.getElementById("floatingInput").value = "";
   } catch (err) {
     console.error("Error al buscar punto de partida:", err);
-    document.getElementById("alerta").classList.remove("oculto");
+    document.getElementById("alerta").classList.remove("oculta");
   }
 }
 
@@ -147,14 +147,14 @@ export async function calcularRutaOptima(listaDestinos = null) {
   if (destinosOmitidos.length > 0) {
     const alertaConexion = document.getElementById("alertaConexion");
     if (alertaConexion) {
-      alertaConexion.classList.remove("oculto");
+      alertaConexion.classList.remove("oculta");
       alertaConexion.innerHTML = `
         <strong>¡Atención!</strong> Se eliminaron los siguientes destinos porque no tienen ruta disponible:<br>
         ${destinosOmitidos.map(d => d.nombre).join(", ")}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       `;
       setTimeout(() => {
-        alertaConexion.classList.add("oculto");
+        alertaConexion.classList.add("oculta");
       }, 6000);
     }
   }

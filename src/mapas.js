@@ -1,10 +1,11 @@
 import * as L from 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet-src.esm.js';
-
+let mapaFamosa;
+let capaFamosa = null;
 let map;
 let puntoPartidaMarker = null;
 let rutaLayer = null;
 export const ORS_API_KEY = '5b3ce3597851110001cf62486e6c18c68a304e3693fa9d47b76be2c1';
-
+export { mapaFamosa };
 
 const coloresMarcadores = [
   'red', 'blue', 'green', 'orange', 'purple', 'darkred', 'cadetblue', 'darkgreen',
@@ -153,6 +154,65 @@ export async function mostrarRutaOptima(ruta) {
       <div style="display: flex; align-items: center; gap: 6px; margin: 3px 0;">
         <div style="background-color:${color}; width: 16px; height: 16px; border-radius: 50%; border: 1px solid #000;"></div>
         <span>${nombre}</span>
+      </div>
+    `;
+  });
+}
+export function inicializarMapaFamosa() {
+  if (mapaFamosa) return; // Ya está inicializado
+
+  mapaFamosa = L.map('mapaFamosa').setView([0, 0], 2);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(mapaFamosa);
+}
+
+export async function mostrarRutaFamosa(ruta) {
+  if (!mapaFamosa) inicializarMapaFamosa();
+
+  if (capaFamosa) {
+    mapaFamosa.removeLayer(capaFamosa);
+  }
+
+  capaFamosa = L.layerGroup().addTo(mapaFamosa);
+
+  for (let i = 0; i < ruta.length - 1; i++) {
+    try {
+      const segmento = await trazarRutaORS(ruta[i], ruta[i + 1]);
+
+      if (!segmento || segmento.length === 0) continue;
+
+      L.polyline(segmento, { color: '#dc3545' }).addTo(capaFamosa);
+    } catch (error) {
+      console.error("Error en segmento famosa:", error);
+    }
+  }
+
+  ruta.forEach((punto, index) => {
+    const color = coloresMarcadores[index % coloresMarcadores.length];
+
+    const icono = L.divIcon({
+      className: 'custom-div-icon',
+      html: `<div style="background-color:${color}; width: 20px; height: 20px; border-radius: 50%; border: 2px solid white;"></div>`,
+      iconSize: [20, 20],
+      iconAnchor: [10, 10]
+    });
+
+    L.marker([punto.lat, punto.lon], { icon: icono })
+      .bindPopup(`${index === 0 ? "Inicio" : "Destino"}: ${punto.nombre}`)
+      .addTo(capaFamosa);
+  });
+
+  const bounds = L.latLngBounds(ruta.map(p => [p.lat, p.lon]));
+  mapaFamosa.fitBounds(bounds);
+
+  const leyenda = document.getElementById("leyendaColoresFamosa");
+  leyenda.innerHTML = "<strong>Leyenda de destinos:</strong><br>";
+  ruta.forEach((p, i) => {
+    leyenda.innerHTML += `
+      <div style="display:flex; align-items:center; gap:6px; margin:3px 0;">
+        <div style="background-color:${coloresMarcadores[i % coloresMarcadores.length]}; width:16px; height:16px; border-radius:50%; border:1px solid #000;"></div>
+        <span>${i === 0 ? "Punto de partida" : p.nombre}</span>
       </div>
     `;
   });

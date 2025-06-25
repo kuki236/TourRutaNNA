@@ -1,10 +1,12 @@
 import { inicializarDestinos } from './destinos.js';
-import { inicializarMapa, mostrarRutaOptima } from './mapas.js';
+import { inicializarMapa, mostrarRutaFamosa, inicializarMapaFamosa, mapaFamosa } from './mapas.js';
+
 import { inicializarRuta, manejarPuntoPartida, calcularRutaOptima } from './ruta.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     inicializarMapa();
     inicializarRuta();
+    inicializarMapaFamosa();
     inicializarDestinos((listaDestinos) => {
         calcularRutaOptima(listaDestinos);
     });
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let rutas = [];
 
     btnRutasFamosas.addEventListener("click", () => {
-        seccionRutasFamosas.classList.remove("oculto");
+        seccionRutasFamosas.classList.remove("oculta");
         if (!seccionRutasFamosas.dataset.loaded) {
             cargarRutasFamosas();
             seccionRutasFamosas.dataset.loaded = true;
@@ -88,33 +90,44 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    async function cargarRuta(ruta) {
-        const puntos = [ruta.Punto_1, ruta.Punto_2, ruta.Punto_3, ruta.Punto_4, ruta.Punto_5];
-        const destinos = [];
+   async function cargarRuta(ruta) {
+      const puntos = [ruta.Punto_1, ruta.Punto_2, ruta.Punto_3, ruta.Punto_4, ruta.Punto_5];
+      const destinos = [];
 
-        for (const punto of puntos) {
-            try {
-                // Nota: Aquí se usará Nominatim cuando el usuario lo ejecute
-                const res = await fetch(
-                    `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(punto + ', ' + ruta.Pais)}`
-                );
-                const data = await res.json();
-                if (data.length) {
-                    destinos.push({
-                        dataset: {
-                            nombre: punto,
-                            lat: parseFloat(data[0].lat),
-                            lon: parseFloat(data[0].lon)
-                        }
-                    });
-                }
-            } catch (err) {
-                console.error("Error al geocodificar:", err);
-            }
+      for (const punto of puntos) {
+        try {
+          const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(punto + ', ' + ruta.Pais)}`);
+          const data = await res.json();
+          if (data.length) {
+            destinos.push({
+              nombre: punto,
+              lat: parseFloat(data[0].lat),
+              lon: parseFloat(data[0].lon)
+            });
+          }
+        } catch (err) {
+          console.error("Error al geocodificar:", err);
         }
+      }
 
-        await manejarPuntoPartida(puntos[0]);
-        calcularRutaOptima(destinos);
-        seccionRutasFamosas.classList.add("oculto");
+    // Mostrar sección mapaFamosa y ocultar rutas famosas
+    const contenedor = document.getElementById("mapaRutaFamosa");
+    contenedor.classList.remove("oculta");
+    document.getElementById("seccionRutasFamosas").classList.add("oculta");
+
+    // Mostrar el texto de ruta
+    document.getElementById("textoRutaFamosa").textContent = destinos.map(d => d.nombre).join(" → ");
+
+    // Esperar a que el contenedor sea visible y luego ajustar el mapa
+    setTimeout(() => {
+      mapaFamosa.invalidateSize(); // ← Forzar Leaflet a recalcular dimensiones
+      mostrarRutaFamosa(destinos);
+    }, 300);
     }
+    const btnSeguirExplorando = document.getElementById("btnSeguirExplorando");
+    btnSeguirExplorando.addEventListener("click", () => {
+    document.getElementById("mapaRutaFamosa").classList.add("oculta");
+    document.getElementById("seccionRutasFamosas").classList.remove("oculta");
+       // 100 ms es suficiente para que el mapa esté visible
+});
 });

@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         botonesContinente.forEach((boton) => {
             boton.addEventListener("click", () => {
+                contenedorRutas.classList.remove("oculta")
                 const continente = boton.dataset.continente;
                 const rutasFiltradas = rutas.filter(r => r.Continente === continente);
                 mostrarRutasFamosas(rutasFiltradas);
@@ -131,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Guardar los demás puntos como destinos a optimizar
         const destinos = destinosGeocodificados.slice(1);
-        console.log(destinosGeocodificados)
+        console.log(destinos)
         // Mostrar sección mapaFamosa y ocultar rutas famosas
         console.log("1")
         document.getElementById("mapaRutaFamosa").classList.remove("oculta");
@@ -145,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mapaFamosa.invalidateSize();
                 console.log("3")   
             // Usar algoritmo de vecino más cercano
-            calcularRutaOptima(destinosGeocodificados, true);
+            calcularRutaOptima(destinos, true);
         }, 150);
     }
     const btnSeguirExplorando = document.getElementById("btnSeguirExplorando");

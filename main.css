@@ -282,3 +282,44 @@ html {
 #btnSeguirExplorando {
     width: 20rem;
 }
+.card-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #8b6f55;
+    text-align: center;
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.card ol {
+    padding-left: 1.2rem;
+    margin-top: 1rem;
+}
+
+.card ol li {
+    margin-bottom: 1rem;
+}
+
+.card code {
+    background-color: #f8f9fa;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-family: monospace;
+    display: inline-block;
+}
+
+.card .badge {
+    font-size: 0.9rem;
+    margin-left: 0.3rem;
+}
+
+.card-body {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}

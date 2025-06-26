@@ -158,6 +158,41 @@
         </div>
     </div>
 </div>
+    <div class="container">
+        <div class="row">
+            <div class="card mt-5 shadow" style="width: 100%;">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Complejidad Computacional</h3>
+                    <p class="card-text">
+                        El análisis de la complejidad computacional del algoritmo del Vecino Más Cercano se basa en contar el número de operaciones necesarias en función del número de nodos <strong>n</strong> del grafo.
+                    </p>
+                    <ol>
+                        <li>
+                            <strong>Selección del nodo inicial:</strong> Se elige un nodo arbitrario como punto de partida. Esto se hace en tiempo constante:
+                            <span class="badge bg-secondary">O(1)</span>.
+                        </li>
+                        <li>
+                            <strong>Búsqueda del nodo más cercano:</strong> En cada iteración se evalúan los nodos restantes para encontrar el más cercano. En la primera iteración se consideran <strong>n−1</strong> nodos, luego <strong>n−2</strong>, y así sucesivamente.
+                        </li>
+                        <li>
+                            <strong>Total de comparaciones:</strong> La suma total de comparaciones necesarias es:<br>
+                            <code>(n−1) + (n−2) + ... + 1 = <strong>(n(n−1))/2</strong></code><br>
+                            Esta suma es de orden cuadrático: <span class="badge bg-info text-dark">O(n²)</span>.
+                        </li>
+                        <li>
+                            <strong>Retorno al nodo inicial:</strong> Tras visitar todos los nodos, se regresa al punto de inicio con una operación adicional: 
+                            <span class="badge bg-secondary">O(1)</span>.
+                        </li>
+                    </ol>
+                    <p class="card-text mt-3">
+                        <strong>Conclusión:</strong> La complejidad total del algoritmo se expresa como:<br>
+                        <code>O(1) + O(n²) + O(1) = O(n²)</code>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module" src="./src/main.js"></script>

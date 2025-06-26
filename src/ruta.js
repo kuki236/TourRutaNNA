@@ -1,4 +1,4 @@
-import { mostrarPuntoDePartida, mostrarRutaOptima, trazarRutaORS, ORS_API_KEY } from './mapas.js';
+import { mostrarPuntoDePartida, mostrarRutaOptima,mostrarRutaFamosa, trazarRutaORS, ORS_API_KEY } from './mapas.js';
 
 
 
@@ -9,6 +9,9 @@ export function inicializarRuta() {
   document.getElementById("cartaOptima").style.display = "none"; 
 }
 
+export function establecerPuntoPartida(nuevoPunto) {
+  puntoPartida = nuevoPunto;
+}
 export async function manejarPuntoPartida(lugar) {
   if (!lugar) {
     alert("Por favor, ingresa un punto de partida.");
@@ -75,14 +78,22 @@ async function obtenerDistanciasMatrix(puntoActual, noVisitados) {
   }
 }
 
-export async function calcularRutaOptima(listaDestinos = null) {
-  if (listaDestinos) {
-    destinos = listaDestinos.map(li => ({
-      nombre: li.dataset.nombre,
-      lat: parseFloat(li.dataset.lat),
-      lon: parseFloat(li.dataset.lon)
-    }));
-  }
+export async function calcularRutaOptima(listaDestinos = null, esFamosa = false) {
+if (listaDestinos) {
+  destinos = listaDestinos.map(li => {
+    if (li.dataset) {
+      // Viene desde elementos HTML (input manual)
+      return {
+        nombre: li.dataset.nombre,
+        lat: parseFloat(li.dataset.lat),
+        lon: parseFloat(li.dataset.lon)
+      };
+    } else {
+      // Ya es objeto JS con nombre, lat, lon (ruta famosa)
+      return li;
+    }
+  });
+}
 
   if (!puntoPartida) {
     alert("Por favor, selecciona un punto de partida.");
@@ -131,19 +142,27 @@ export async function calcularRutaOptima(listaDestinos = null) {
       noVisitados = [];
     }
   }
+    const texto = `${ruta.map(d => d.nombre).join(" → ")}`;
+    const rutaConNombres = ruta.map(d => ({
+      lat: d.lat,
+      lon: d.lon,
+      nombre: d.nombre
+    }));
 
-  const texto = `${ruta.map(d => d.nombre).join(" → ")}`;
-  document.getElementById("textoRuta").textContent = texto;
-  document.getElementById("cartaOptima").style.display = "block";
+    if (esFamosa) {
+      document.getElementById("textoRutaFamosa").textContent = texto;
+      document.getElementById("cartaOptimaFamosa").style.display = "block";
+      document.getElementById("seccionResultado").classList.add("oculta");
+      document.getElementById("seccionRutasFamosas").classList.add("oculta");
+      document.getElementById("mapaRutaFamosa").classList.remove("oculta");
+      mostrarRutaFamosa(rutaConNombres);
+    } else {
+      document.getElementById("textoRuta").textContent = texto;
+      document.getElementById("cartaOptima").style.display = "block";
+      mostrarRutaOptima(rutaConNombres);
+    }
 
-  const rutaConNombres = ruta.map(d => ({
-    lat: d.lat,
-    lon: d.lon,
-    nombre: d.nombre
-  }));
-
-  mostrarRutaOptima(rutaConNombres);
-
+  
   if (destinosOmitidos.length > 0) {
     const alertaConexion = document.getElementById("alertaConexion");
     if (alertaConexion) {

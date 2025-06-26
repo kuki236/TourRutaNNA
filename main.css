@@ -94,6 +94,7 @@ html {
     /* Posicionamiento sobre la imagen */
     position: absolute;
     bottom: 20px; /* Distancia desde la parte inferior */
+    margin-bottom: 7.5%;
     left: 12.5%; /* Centrado horizontal */
     transform: translateX(-50%); /* Corrige el centrado */
     z-index: 10; /* Por encima de la imagen */

@@ -1,7 +1,7 @@
 import { inicializarDestinos } from './destinos.js';
 import { inicializarMapa, mostrarRutaFamosa, inicializarMapaFamosa, mapaFamosa } from './mapas.js';
 
-import { inicializarRuta, manejarPuntoPartida, calcularRutaOptima } from './ruta.js';
+import { inicializarRuta, manejarPuntoPartida, calcularRutaOptima, establecerPuntoPartida } from './ruta.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     inicializarMapa();
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function cargarRutasFamosas() {
-        Papa.parse("rutas_turisticas.csv", {
+        Papa.parse("rutas_turisticasss.csv", {
             download: true,
             header: true,
             complete: function (results) {
@@ -69,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
             card.className = "card col-md-4";
             card.style.width = "18rem";
             card.innerHTML = `
-                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="${ruta.Nombre_Ruta}">
                 <div class="card-body">
                     <h5 class="card-title">${ruta.Nombre_Ruta}</h5>
                     <p class="card-text"><strong>${ruta.Pais}</strong><br>${ruta.Punto_1}, ${ruta.Punto_2}, ${ruta.Punto_3}, ${ruta.Punto_4}, ${ruta.Punto_5}</p>
@@ -83,51 +82,76 @@ document.addEventListener("DOMContentLoaded", () => {
         const botonesVerRuta = document.querySelectorAll(".btn-ver-ruta");
         botonesVerRuta.forEach((boton) => {
             boton.addEventListener("click", () => {
+
                 const rutaId = boton.dataset.rutaId;
                 const ruta = rutas.find(r => r.Ruta_ID === rutaId);
+                console.log(rutaId)
+                console.log(ruta)
                 cargarRuta(ruta);
             });
         });
     }
 
-   async function cargarRuta(ruta) {
-      const puntos = [ruta.Punto_1, ruta.Punto_2, ruta.Punto_3, ruta.Punto_4, ruta.Punto_5];
-      const destinos = [];
+    async function cargarRuta(ruta) {
+        const puntosTexto = [
+            ruta.Punto_1,
+            ruta.Punto_2,
+            ruta.Punto_3,
+            ruta.Punto_4,
+            ruta.Punto_5
+        ];
 
-      for (const punto of puntos) {
-        try {
-          const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(punto + ', ' + ruta.Pais)}`);
-          const data = await res.json();
-          if (data.length) {
-            destinos.push({
-              nombre: punto,
-              lat: parseFloat(data[0].lat),
-              lon: parseFloat(data[0].lon)
-            });
-          }
-        } catch (err) {
-          console.error("Error al geocodificar:", err);
+        const destinosGeocodificados = [];
+
+        for (const punto of puntosTexto) {
+            try {
+            const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(punto + ', ' + ruta.Pais)}`);
+            const data = await res.json();
+
+            if (data.length) {
+                destinosGeocodificados.push({
+                nombre: punto,
+                lat: parseFloat(data[0].lat),
+                lon: parseFloat(data[0].lon)
+                });
+            }
+            } catch (err) {
+            console.error("Error al geocodificar:", err);
+            }
         }
-      }
 
-    // Mostrar sección mapaFamosa y ocultar rutas famosas
-    const contenedor = document.getElementById("mapaRutaFamosa");
-    contenedor.classList.remove("oculta");
-    document.getElementById("seccionRutasFamosas").classList.add("oculta");
+        // Si no se pudieron geocodificar al menos 2 puntos, salimos
+        if (destinosGeocodificados.length < 2) {
+            alert("No se pudo geocodificar suficientes puntos para optimizar la ruta.");
+            return;
+        }
 
-    // Mostrar el texto de ruta
-    document.getElementById("textoRutaFamosa").textContent = destinos.map(d => d.nombre).join(" → ");
+        // Separar el punto de partida (el primero del CSV)
+            establecerPuntoPartida(destinosGeocodificados[0]);
 
-    // Esperar a que el contenedor sea visible y luego ajustar el mapa
-    setTimeout(() => {
-      mapaFamosa.invalidateSize(); // ← Forzar Leaflet a recalcular dimensiones
-      mostrarRutaFamosa(destinos);
-    }, 300);
+        // Guardar los demás puntos como destinos a optimizar
+        const destinos = destinosGeocodificados.slice(1);
+        console.log(destinosGeocodificados)
+        // Mostrar sección mapaFamosa y ocultar rutas famosas
+        console.log("1")
+        document.getElementById("mapaRutaFamosa").classList.remove("oculta");
+         console.log("2")
+        document.getElementById("contenedorRutasFamosas").classList.add("oculta");
+        // Mostrar el texto de la ruta original (sin optimizar aún)
+        document.getElementById("textoRutaFamosa").textContent = destinosGeocodificados.map(d => d.nombre).join(" → ");
+
+        // Asegurar que el mapa se renderice bien
+        setTimeout(() => {
+            mapaFamosa.invalidateSize();
+                console.log("3")   
+            // Usar algoritmo de vecino más cercano
+            calcularRutaOptima(destinosGeocodificados, true);
+        }, 150);
     }
     const btnSeguirExplorando = document.getElementById("btnSeguirExplorando");
     btnSeguirExplorando.addEventListener("click", () => {
+    document.getElementById("seccionRutasFamosas").classList.remove("oculta");       
     document.getElementById("mapaRutaFamosa").classList.add("oculta");
-    document.getElementById("seccionRutasFamosas").classList.remove("oculta");
        // 100 ms es suficiente para que el mapa esté visible
 });
 });

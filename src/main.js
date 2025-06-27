@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const btnEmpezar = document.getElementById("btnEmpezar");
-    btnEmpezar.addEventListener("click", () => {
+        btnEmpezar.addEventListener("click", () => {
         const lugar = document.getElementById("floatingInput").value.trim();
         manejarPuntoPartida(lugar);
     });
@@ -88,11 +88,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 const ruta = rutas.find(r => r.Ruta_ID === rutaId);
                 console.log(rutaId)
                 console.log(ruta)
+                document.getElementById("contenedorRutasFamosas").classList.add("oculta");
                 cargarRuta(ruta);
+
             });
         });
     }
-
     async function cargarRuta(ruta) {
         const puntosTexto = [
             ruta.Punto_1,
@@ -132,15 +133,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Guardar los demás puntos como destinos a optimizar
         const destinos = destinosGeocodificados.slice(1);
-        console.log(destinos)
+        console.log(destinosGeocodificados)
         // Mostrar sección mapaFamosa y ocultar rutas famosas
         console.log("1")
         document.getElementById("mapaRutaFamosa").classList.remove("oculta");
          console.log("2")
-        document.getElementById("contenedorRutasFamosas").classList.add("oculta");
         // Mostrar el texto de la ruta original (sin optimizar aún)
         document.getElementById("textoRutaFamosa").textContent = destinosGeocodificados.map(d => d.nombre).join(" → ");
-
+        mostrarCarouselImagenes(ruta.Ruta_ID, destinosGeocodificados);
         // Asegurar que el mapa se renderice bien
         setTimeout(() => {
             mapaFamosa.invalidateSize();
@@ -150,9 +150,59 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 150);
     }
     const btnSeguirExplorando = document.getElementById("btnSeguirExplorando");
-    btnSeguirExplorando.addEventListener("click", () => {
-    document.getElementById("seccionRutasFamosas").classList.remove("oculta");       
-    document.getElementById("mapaRutaFamosa").classList.add("oculta");
+        btnSeguirExplorando.addEventListener("click", () => {
+            document.getElementById("seccionRutasFamosas").classList.remove("oculta");       
+            document.getElementById("mapaRutaFamosa").classList.add("oculta");
+            document.getElementById("sectionImagenesRuta").classList.add("oculta")
        // 100 ms es suficiente para que el mapa esté visible
-});
+      });
+ const $sectionCarouselIma = document.getElementById("imaRutasFamosa")
+
+function mostrarCarouselImagenes(rutaId, destinos) {
+    const seccion = document.querySelector(".imaRutasFamosa");
+    const contenedorCarousel = document.getElementById("carouselIma");
+    const indicadores = document.querySelector(".carousel-indicators");
+
+    seccion.classList.remove("oculta");
+    contenedorCarousel.innerHTML = "";
+    indicadores.innerHTML = ""; // <-- ¡IMPORTANTE! Limpiar los indicadores previos
+    console.log(destinos)
+    destinos.forEach((destino, index) => {
+        // Crear item del carrusel
+        const item = document.createElement("div");
+        item.className = `carousel-item itemCAR ${index === 0 ? "active" : ""}`;
+        item.setAttribute("data-bs-interval", "10000");
+
+        // Contenedor estructurado con container, row y col
+        item.innerHTML = `
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <img src="./imagenes/${rutaId}/${index + 1}.jpg" class="imagen-carousel-famosa d-block" alt="${destino.nombre}">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <p class="fw-bold textoIma">${destino.nombre}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        contenedorCarousel.appendChild(item);
+
+        // Crear botón indicador
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.setAttribute("data-bs-target", "#carouselExampleDark");
+        boton.setAttribute("data-bs-slide-to", index);
+        boton.setAttribute("aria-label", `Slide ${index + 1}`);
+        if (index === 0) {
+            boton.classList.add("active");
+            boton.setAttribute("aria-current", "true");
+        }
+        indicadores.appendChild(boton);
+    });
+}
+
 });

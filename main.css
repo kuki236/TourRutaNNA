@@ -323,3 +323,23 @@ html {
     padding: 2rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
+.imagen-carousel-famosa {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+.carousel-item .contenido-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.textoIma{
+    margin-bottom: 2.3rem;
+}
+.imaRutasFamosa{
+    margin-top: 2rem;
+}

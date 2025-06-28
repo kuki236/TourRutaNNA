@@ -3,18 +3,18 @@ R001,Europa,Francia,Ruta Parisina,Museo del Louvre,Jardín de las Tullerías,Tor
 R002,Europa,Francia,Ruta Montmartre,Basílica del Sagrado Corazón,Place du Tertre,Museo de Montmartre,Rue Lepic,Mur des Je
 R003,Europa,Francia,Ruta del Marais,Place des Vosges - 75004 Paris,Museo Carnavalet,Museo Picasso,Rue des Rosiers,Marché des Enfants Rouges
 R004,Europa,España,Ruta Catalana,Sagrada Familia,Parque Güell,Casa Batlló,Universitat de Barcelona,Palau de la Música Catalana
-R005,Europa,España,Ruta Andaluza,Parque miraflores sevilla,Estadio RAMON SANCHEZ PIZJUAN,Alcázar de Sevilla,Plaza de España Sevilla,Giralda Sur Sevilla
-R006,Europa,España,Ruta Madrileña,Puerta del Sol,Plaza Mayor,Museo del Prado,Parque del Retiro,Gran Vía
+R005,Europa,España,Ruta Andaluza,Parque Miraflores Sevilla,Estadio RAMON SANCHEZ PIZJUAN,Alcázar de Sevilla,Plaza de España Sevilla,Giralda Sur Sevilla
+R006,Europa,España,Ruta Madrileña,Puerta del Sol,Plaza Mayor,Museo del Prado,Plaza de la Armería,Gran Vía
 R007,Europa,España,Ruta Valenciana,Ciudad de las Artes y las Ciencias valencia,Oceanogràfic,Catedral de Valencia,Mercado Central,Torres de Serranos
 R008,Europa,Italia,Ruta Romana,Coliseo,Foro Romano,Panteón,Fontana di Trevi,Plaza Navona
-R009,Europa,Italia,Ruta Veneciana,Plaza de San Marcos,Gran Canal,Puente de Rialto,Palazzo Ducale,Basilica di Santa Maria Gloriosa
+R009,Europa,Italia,Ruta Veneciana,Piazzale Roma,Piazzale Roma Sant'Andrea "B",Università IUAV di Venezia,Marittima (cruise terminal),Tronchetto
 R010,Europa,Alemania,Ruta Bávara,Neuschwansteinpl,Marienplatz,Residenz de Múnich,Oktoberfest München,Englischer Garten
-R011,Europa,Alemania,Ruta Berlín,Puerta de Brandeburgo,Berliner Mauerweg,Catedral de Berlín,Isla de los Museos Berlib,Alexanderplatz
+R011,Europa,Alemania,Ruta Berlín,Puerta de Brandeburgo,Berliner Mauerweg,Catedral de Berlín,Torre de Televisión de Berlín,Alexanderplatz
 R012,Europa,Reino Unido,Ruta de Oxford,Universidad de Oxford,Bodleian Library,Christ Church Meadow,Oxford Oak Camping,Museo Ashmolean
 R013,Europa,Portugal,Ruta Lisboeta,Torre de Belém,Monasterio de los Jerónimos,Castillo de San Jorge,Alfama,Tapada das Necessidades
 R014,Europa,Bélgica,Ruta Cultural,Atomium,Grand Place,Manneken Pis,Catedral de San Miguel,Groenerei 16 A 8000 Brugge
-R015,Europa,Suiza,Ruta Alpina,Kapellbrücke,Château de Chillon,Matterhorn Glacier Paradise,Jungfraujoch,Lac Léman
-R016,Asia,Japón,Ruta de Kioto,Templo Kinkaku-ji,Fushimi Inari,Bosque de Bambú de Arashiyama,Castillo Nijo,Templo Ginkaku-ji
+R015,Europa,Suiza,Ruta Alpina,BärenPark, Zytglogge, Bundeshaus, Berner Münster, Bernisches Historisches Museum
+R016,Asia,Japón,Ruta de Kioto,Templo Kinkaku-ji,Fushimi Inari,Sagaogurayama Tabuchiyamacho,Castillo Nijo,Templo Ginkaku-ji
 R017,Asia,Japón,Ruta de Tokio,Templo Senso-ji,Shibuya Scramble Crossing,Torre de Tokio,Parque Ueno,Jardín Shinjuku Gyoen
 R018,Asia,Corea del Sur,Ruta de Busan,Playa Haeundae,Templo Haedong Yonggungsa,BIFF Square,Busan Tower,Yongdusan busan
 R019,Asia,India,Ruta del Norte,Sri Harmandir Sahib,McLeod Ganj,Hawa Mahal,Chandni Chowk,Fuerte Rojo
@@ -34,12 +34,12 @@ R032,América del Sur,Uruguay,Ruta Costera,Casapueblo,Playa Mansa,La Mano,Fortal
 R033,América del Norte,México,Ruta Yucateca,Chichén Itzá,Uxmal,Cenote Ik Kil,Tulum Ruinas,Playa del Carmen
 R034,América del Norte,México,Ruta Colonial,Templo Mayor,Catedral Metropolitana,Palacio de Bellas Artes,Chapultepec,Zócalo de Puebla
 R035,América del Norte,México,Ruta Tapatía,Catedral de la Asunción de María Santísima,Teatro Degollado,Tlaquepaque,Basílica de Zapopan,San Juan de Dios Guadalajara
-R036,América del Norte,Estados Unidos,Ruta de California,Point Vicente Park,California State University,Hollywood Sign,Malibu Beach,Crystal Cove State Park
-R037,América del Norte,Estados Unidos,Ruta Noreste,Estatua de la Libertad,Central Park,Times Square, Empire State Building, Rockefeller Center
+R036,América del Norte,Estados Unidos,Ruta de California,Point Vicente Park,Abalone Cove Shoreline Park, Terranea Resort, Wayfarers Chapel, Pelican Cove Park
+R037,América del Norte,Estados Unidos,Ruta Noreste,Central Park,Times Square, Empire State Building, Rockefeller Center, Grand Central Terminal
 R038,América del Norte,Estados Unidos,Ruta Sureña,The French Quarter,Universal Studios Orlando,Savannah Historic District,Charleston Battery,Graceland
 R039,América del Norte,Estados Unidos,Ruta Washington DC,Capitolio,Casa Blanca,National Mall,Museo Smithsonian,Lincoln Memorial
-R040,América del Norte,Canadá,Ruta de Toronto,CN Tower,Harbourfront,Distillery District,Royal Ontario Museum,High Park
-R041,América del Norte,Costa Rica,Ruta Natural,Volcán Arenal,Monteverde Cloud Forest,Playa Manuel Antonio,Tortuguero Canals,Rio Celeste
+R040,América del Norte,Canadá,Ruta de Toronto,CN Tower,Harbourfront,Distillery District,Royal Ontario Museum,Kensington Market
+R041,América del Norte,Costa Rica,Ruta Natural,La Fortuna, Catarata La Fortuna, Butterfly Conservatory, Parque Ecológico Volcán Arenal, Plaza Deportes El castillo
 R042,África,Marruecos,Ruta Imperial,Saadian Tombs, El Badi Palace,Palacio Bahía,Mezquita Kutubía,Plaza Jemaa el-Fna
 R043,África,Sudáfrica,Ruta del Cabo,Table Mountain,Boulders Beach,Kirstenbosch Gardens,Robben Island,Cape Point
 R044,África,Túnez,Ruta Histórica,Anfiteatro de El Jem,Medina de Túnez,Cartago,Museo del Bardo,Sidi Bou Said

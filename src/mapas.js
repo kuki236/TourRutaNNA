@@ -159,7 +159,7 @@ export async function mostrarRutaOptima(ruta) {
   });
 }
 export function inicializarMapaFamosa() {
-  if (mapaFamosa) return; // Ya está inicializado
+  if (mapaFamosa) return; 
 
   mapaFamosa = L.map('mapaFamosa').setView([0, 0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

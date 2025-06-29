@@ -1,7 +1,5 @@
 import { mostrarPuntoDePartida, mostrarRutaOptima,mostrarRutaFamosa, trazarRutaORS, ORS_API_KEY } from './mapas.js';
 
-
-
 let puntoPartida = null;
 let destinos = [];
 
@@ -77,19 +75,17 @@ async function obtenerDistanciasMatrix(puntoActual, noVisitados) {
     throw error;
   }
 }
-
+// NNA - Nearest Neighbor Algorithm
 export async function calcularRutaOptima(listaDestinos = null, esFamosa = false) {
 if (listaDestinos) {
   destinos = listaDestinos.map(li => {
     if (li.dataset) {
-      // Viene desde elementos HTML (input manual)
       return {
         nombre: li.dataset.nombre,
         lat: parseFloat(li.dataset.lat),
         lon: parseFloat(li.dataset.lon)
       };
     } else {
-      // Ya es objeto JS con nombre, lat, lon (ruta famosa)
       return li;
     }
   });
@@ -126,7 +122,6 @@ if (listaDestinos) {
       });
 
       if (destinoMasCercano) {
-        // Verificar conexión con trazarRutaORS solo para el destino más cercano
         await trazarRutaORS(actual, destinoMasCercano, false);
         ruta.push(destinoMasCercano);
         actual = destinoMasCercano;
@@ -177,19 +172,4 @@ if (listaDestinos) {
       }, 6000);
     }
   }
-}
-
-
-function calcularDistancia(lat1, lon1, lat2, lon2) {
-  const R = 6371; 
-  const dLat = (lat2 - lat1) * (Math.PI / 180);
-  const dLon = (lon2 - lon1) * (Math.PI / 180);
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(lat1 * (Math.PI / 180)) *
-      Math.cos(lat2 * (Math.PI / 180)) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c;
 }

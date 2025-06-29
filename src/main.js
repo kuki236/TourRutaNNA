@@ -1,6 +1,5 @@
 import { inicializarDestinos } from './destinos.js';
-import { inicializarMapa, mostrarRutaFamosa, inicializarMapaFamosa, mapaFamosa } from './mapas.js';
-
+import { inicializarMapa, inicializarMapaFamosa, mapaFamosa } from './mapas.js';
 import { inicializarRuta, manejarPuntoPartida, calcularRutaOptima, establecerPuntoPartida } from './ruta.js';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,11 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const btnEmpezar = document.getElementById("btnEmpezar");
         btnEmpezar.addEventListener("click", () => {
+        document.getElementById("seccionResultado").classList.remove("oculta")
         const lugar = document.getElementById("floatingInput").value.trim();
         manejarPuntoPartida(lugar);
     });
 
-    // Manejar botón "Ver Rutas Famosas"
     const btnRutasFamosas = document.querySelector(".btn-warning");
     const seccionRutasFamosas = document.getElementById("seccionRutasFamosas");
     let rutas = [];
@@ -79,15 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
             contenedorRutas.appendChild(card);
         });
 
-        // Añadir evento a los botones "Ver Ruta"
         const botonesVerRuta = document.querySelectorAll(".btn-ver-ruta");
         botonesVerRuta.forEach((boton) => {
             boton.addEventListener("click", () => {
 
                 const rutaId = boton.dataset.rutaId;
                 const ruta = rutas.find(r => r.Ruta_ID === rutaId);
-                console.log(rutaId)
-                console.log(ruta)
                 document.getElementById("contenedorRutasFamosas").classList.add("oculta");
                 cargarRuta(ruta);
 
@@ -121,31 +117,20 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Error al geocodificar:", err);
             }
         }
-
-        // Si no se pudieron geocodificar al menos 2 puntos, salimos
         if (destinosGeocodificados.length < 2) {
             alert("No se pudo geocodificar suficientes puntos para optimizar la ruta.");
             return;
         }
 
-        // Separar el punto de partida (el primero del CSV)
-            establecerPuntoPartida(destinosGeocodificados[0]);
+        establecerPuntoPartida(destinosGeocodificados[0]);
 
-        // Guardar los demás puntos como destinos a optimizar
         const destinos = destinosGeocodificados.slice(1);
-        console.log(destinosGeocodificados)
-        // Mostrar sección mapaFamosa y ocultar rutas famosas
-        console.log("1")
+ 
         document.getElementById("mapaRutaFamosa").classList.remove("oculta");
-         console.log("2")
-        // Mostrar el texto de la ruta original (sin optimizar aún)
         document.getElementById("textoRutaFamosa").textContent = destinosGeocodificados.map(d => d.nombre).join(" → ");
         mostrarCarouselImagenes(ruta.Ruta_ID, destinosGeocodificados);
-        // Asegurar que el mapa se renderice bien
         setTimeout(() => {
             mapaFamosa.invalidateSize();
-                console.log("3")   
-            // Usar algoritmo de vecino más cercano
             calcularRutaOptima(destinos, true);
         }, 150);
     }
@@ -154,7 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("seccionRutasFamosas").classList.remove("oculta");       
             document.getElementById("mapaRutaFamosa").classList.add("oculta");
             document.getElementById("sectionImagenesRuta").classList.add("oculta")
-       // 100 ms es suficiente para que el mapa esté visible
       });
  const $sectionCarouselIma = document.getElementById("imaRutasFamosa")
 
@@ -165,15 +149,14 @@ function mostrarCarouselImagenes(rutaId, destinos) {
 
     seccion.classList.remove("oculta");
     contenedorCarousel.innerHTML = "";
-    indicadores.innerHTML = ""; // <-- ¡IMPORTANTE! Limpiar los indicadores previos
+    indicadores.innerHTML = ""; 
     console.log(destinos)
     destinos.forEach((destino, index) => {
-        // Crear item del carrusel
+
         const item = document.createElement("div");
         item.className = `carousel-item itemCAR ${index === 0 ? "active" : ""}`;
         item.setAttribute("data-bs-interval", "10000");
 
-        // Contenedor estructurado con container, row y col
         item.innerHTML = `
             <div class="container text-center">
                 <div class="row justify-content-center">
@@ -191,7 +174,6 @@ function mostrarCarouselImagenes(rutaId, destinos) {
 
         contenedorCarousel.appendChild(item);
 
-        // Crear botón indicador
         const boton = document.createElement("button");
         boton.type = "button";
         boton.setAttribute("data-bs-target", "#carouselExampleDark");

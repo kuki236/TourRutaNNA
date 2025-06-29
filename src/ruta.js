@@ -1,6 +1,4 @@
-import { mostrarPuntoDePartida, mostrarRutaOptima, trazarRutaORS, ORS_API_KEY } from './mapas.js';
-
-
+import { mostrarPuntoDePartida, mostrarRutaOptima,mostrarRutaFamosa, trazarRutaORS, ORS_API_KEY } from './mapas.js';
 
 let puntoPartida = null;
 let destinos = [];
@@ -9,6 +7,9 @@ export function inicializarRuta() {
   document.getElementById("cartaOptima").style.display = "none"; 
 }
 
+export function establecerPuntoPartida(nuevoPunto) {
+  puntoPartida = nuevoPunto;
+}
 export async function manejarPuntoPartida(lugar) {
   if (!lugar) {
     alert("Por favor, ingresa un punto de partida.");
@@ -19,7 +20,7 @@ export async function manejarPuntoPartida(lugar) {
     const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(lugar)}`);
     const data = await res.json();
     if (!data.length) {
-      document.getElementById("alerta").classList.remove("oculto");
+      document.getElementById("alerta").classList.remove("oculta");
       return;
     }
 
@@ -33,11 +34,11 @@ export async function manejarPuntoPartida(lugar) {
     };
 
     mostrarPuntoDePartida(puntoPartida.lat, puntoPartida.lon);
-    document.getElementById("alerta").classList.add("oculto");
+    document.getElementById("alerta").classList.add("oculta");
     document.getElementById("floatingInput").value = "";
   } catch (err) {
     console.error("Error al buscar punto de partida:", err);
-    document.getElementById("alerta").classList.remove("oculto");
+    document.getElementById("alerta").classList.remove("oculta");
   }
 }
 
@@ -74,15 +75,21 @@ async function obtenerDistanciasMatrix(puntoActual, noVisitados) {
     throw error;
   }
 }
-
-export async function calcularRutaOptima(listaDestinos = null) {
-  if (listaDestinos) {
-    destinos = listaDestinos.map(li => ({
-      nombre: li.dataset.nombre,
-      lat: parseFloat(li.dataset.lat),
-      lon: parseFloat(li.dataset.lon)
-    }));
-  }
+// NNA - Nearest Neighbor Algorithm
+export async function calcularRutaOptima(listaDestinos = null, esFamosa = false) {
+if (listaDestinos) {
+  destinos = listaDestinos.map(li => {
+    if (li.dataset) {
+      return {
+        nombre: li.dataset.nombre,
+        lat: parseFloat(li.dataset.lat),
+        lon: parseFloat(li.dataset.lon)
+      };
+    } else {
+      return li;
+    }
+  });
+}
 
   if (!puntoPartida) {
     alert("Por favor, selecciona un punto de partida.");
@@ -115,7 +122,6 @@ export async function calcularRutaOptima(listaDestinos = null) {
       });
 
       if (destinoMasCercano) {
-        // Verificar conexión con trazarRutaORS solo para el destino más cercano
         await trazarRutaORS(actual, destinoMasCercano, false);
         ruta.push(destinoMasCercano);
         actual = destinoMasCercano;
@@ -131,46 +137,39 @@ export async function calcularRutaOptima(listaDestinos = null) {
       noVisitados = [];
     }
   }
+    const texto = `${ruta.map(d => d.nombre).join(" → ")}`;
+    const rutaConNombres = ruta.map(d => ({
+      lat: d.lat,
+      lon: d.lon,
+      nombre: d.nombre
+    }));
 
-  const texto = `${ruta.map(d => d.nombre).join(" → ")}`;
-  document.getElementById("textoRuta").textContent = texto;
-  document.getElementById("cartaOptima").style.display = "block";
+    if (esFamosa) {
+      document.getElementById("textoRutaFamosa").textContent = texto;
+      document.getElementById("cartaOptimaFamosa").style.display = "block";
+      document.getElementById("seccionResultado").classList.add("oculta");
+      document.getElementById("seccionRutasFamosas").classList.add("oculta");
+      document.getElementById("mapaRutaFamosa").classList.remove("oculta");
+      mostrarRutaFamosa(rutaConNombres);
+    } else {
+      document.getElementById("textoRuta").textContent = texto;
+      document.getElementById("cartaOptima").style.display = "block";
+      mostrarRutaOptima(rutaConNombres);
+    }
 
-  const rutaConNombres = ruta.map(d => ({
-    lat: d.lat,
-    lon: d.lon,
-    nombre: d.nombre
-  }));
-
-  mostrarRutaOptima(rutaConNombres);
-
+  
   if (destinosOmitidos.length > 0) {
     const alertaConexion = document.getElementById("alertaConexion");
     if (alertaConexion) {
-      alertaConexion.classList.remove("oculto");
+      alertaConexion.classList.remove("oculta");
       alertaConexion.innerHTML = `
         <strong>¡Atención!</strong> Se eliminaron los siguientes destinos porque no tienen ruta disponible:<br>
         ${destinosOmitidos.map(d => d.nombre).join(", ")}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       `;
       setTimeout(() => {
-        alertaConexion.classList.add("oculto");
+        alertaConexion.classList.add("oculta");
       }, 6000);
     }
   }
-}
-
-
-function calcularDistancia(lat1, lon1, lat2, lon2) {
-  const R = 6371; 
-  const dLat = (lat2 - lat1) * (Math.PI / 180);
-  const dLon = (lon2 - lon1) * (Math.PI / 180);
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(lat1 * (Math.PI / 180)) *
-      Math.cos(lat2 * (Math.PI / 180)) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c;
 }

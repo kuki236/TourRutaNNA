@@ -10,6 +10,7 @@ export function inicializarDestinos(callback) {
     try {
       const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(destino)}`);
       const data = await res.json();
+      console.log(data)
       if (!data.length) return alert("Destino no encontrado.");
       const { lat, lon } = data[0];
 

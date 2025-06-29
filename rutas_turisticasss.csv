@@ -1,0 +1,52 @@
+Ruta_ID,Continente,Pais,Nombre_Ruta,Punto_1,Punto_2,Punto_3,Punto_4,Punto_5
+R001,Europa,Francia,Ruta Parisina,Museo del Louvre,Jardín de las Tullerías,Torre Eiffel,Arco del Triunfo,Montmartre
+R002,Europa,Francia,Ruta Montmartre,Basílica del Sagrado Corazón,Place du Tertre,Museo de Montmartre,Rue Lepic,Mur des Je
+R003,Europa,Francia,Ruta del Marais,Place des Vosges - 75004 Paris,Museo Carnavalet,Museo Picasso,Rue des Rosiers,Marché des Enfants Rouges
+R004,Europa,España,Ruta Catalana,Sagrada Familia,Parque Güell,Casa Batlló,Universitat de Barcelona,Palau de la Música Catalana
+R005,Europa,España,Ruta Andaluza,Parque Miraflores Sevilla,Estadio RAMON SANCHEZ PIZJUAN,Alcázar de Sevilla,Plaza de España Sevilla,Giralda Sur Sevilla
+R006,Europa,España,Ruta Madrileña,Puerta del Sol,Plaza Mayor,Museo del Prado,Plaza de la Armería,Gran Vía
+R007,Europa,España,Ruta Valenciana,Ciudad de las Artes y las Ciencias valencia,Oceanogràfic,Catedral de Valencia,Mercado Central,Torres de Serranos
+R008,Europa,Italia,Ruta Romana,Coliseo,Foro Romano,Panteón,Fontana di Trevi,Plaza Navona
+R009,Europa,Italia,Ruta Veneciana,Piazzale Roma,Piazzale Roma Sant Andrea B,Università IUAV di Venezia,Marittima (cruise terminal),Tronchetto
+R010,Europa,Alemania,Ruta Bávara,Neuschwansteinpl,Marienplatz,Residenz de Múnich,Oktoberfest München,Englischer Garten
+R011,Europa,Alemania,Ruta Berlín,Puerta de Brandeburgo,Berliner Mauerweg,Catedral de Berlín,Torre de Televisión de Berlín,Alexanderplatz
+R012,Europa,Reino Unido,Ruta de Oxford,Universidad de Oxford,Bodleian Library,Christ Church Meadow,Oxford Oak Camping,Museo Ashmolean
+R013,Europa,Portugal,Ruta Lisboeta,Torre de Belém,Monasterio de los Jerónimos,Castillo de San Jorge,Alfama,Tapada das Necessidades
+R014,Europa,Bélgica,Ruta Cultural,Atomium,Grand Place,Manneken Pis,Catedral de San Miguel,Groenerei 16 A 8000 Brugge
+R015,Europa,Suiza,Ruta Alpina,BärenPark, Zytglogge, Bundeshaus, Berner Münster, Bernisches Historisches Museum
+R016,Asia,Japón,Ruta de Kioto,Templo Kinkaku-ji,Fushimi Inari,Sagaogurayama Tabuchiyamacho,Castillo Nijo,Templo Ginkaku-ji
+R017,Asia,Japón,Ruta de Tokio,Templo Senso-ji,Shibuya Scramble Crossing,Torre de Tokio,Parque Ueno,Jardín Shinjuku Gyoen
+R018,Asia,Corea del Sur,Ruta de Busan,Playa Haeundae,Templo Haedong Yonggungsa,BIFF Square,Busan Tower,Yongdusan busan
+R019,Asia,India,Ruta del Norte,Sri Harmandir Sahib,McLeod Ganj,Hawa Mahal,Chandni Chowk,Fuerte Rojo
+R020,Asia,Tailandia,Ruta de Bangkok,Gran Palacio,Templo del Buda Esmeralda,Templo Wat Arun,Mercado Flotante,Jim Thompson House
+R021,Asia,Turquía,Ruta de Estambul,Santa Sofía,Mezquita Azul,Gran Bazar,Palacio Topkapi,Cisterna Basílica
+R022,América del Sur,Perú,Ruta Costera Limeña,Parque de las Leyendas,Mall del Sur San Juan Miraflores,Larcomar,Parque Kennedy,Pantanos de Villa
+R023,América del Sur,Perú,Ruta Centro Histórico de Lima,Plaza Mayor de Lima,Catedral de Lima,Palacio de Gobierno,Casa de la Literatura,Iglesia de San Francisco Lima
+R024,América del Sur,Perú,Ruta Miraflorina,Parque del Amor,Circuito de Playas,Parque María Reiche,Parque Chino Miraflores,Malecón Cisneros
+R025,América del Sur,Perú,Ruta Cusqueña,Plaza de Armas de Cusco,Qorikancha,Saqsaywaman cusco,Iglesia de San Blas,Mercado de San Pedro
+R026,América del Sur,Perú,Ruta Arequipeña,Plaza de Armas de Arequipa,Monasterio de Santa Catalina,Museo Santuarios Andinos,Iglesia de la Compañía,Mirador de Yanahuara
+R027,América del Sur,Argentina,Ruta Patagónica,El Calafate,Glaciar Perito Moreno (PN Los Glaciares),Reserva Laguna Nimez ,Lago Argentino Mirador,Estancia 25 de Mayo
+R028,América del Sur,Brasil,Ruta Carioca,Cristo Redentor,Urca Río de Janeiro,Parque Lage,Maracaná,Playa de Copacabana
+R029,América del Sur,Chile,Ruta de Santiago,Cerro San Cristóbal,Plaza de Armas,Museo de Bellas Artes,La Chascona,parque deportivo estadio nacional 
+R030,América del Sur,Colombia,Ruta Andina,Plaza de Bolívar, humedal jaboque, Catedral de Sal, Guatavita, Pueblito Boyacense
+R031,América del Sur,Bolivia,Ruta del Altiplano,Valle de la Luna,Muela del Diablo,Catedral de La Paz,Mirador Killi Killi,Tiwanaku
+R032,América del Sur,Uruguay,Ruta Costera,Casapueblo,Playa Mansa,La Mano,Fortaleza de Santa Teresa,Barra de Valizas
+R033,América del Norte,México,Ruta Yucateca,Mérida,Paseo de Montejo,Museo del Mundo Maya,Cenotes de Cuzamá,Hacienda Sotuta de Peón
+R034,América del Norte,México,Ruta Colonial,Templo Mayor,Catedral Metropolitana,Palacio de Bellas Artes,Chapultepec,Zócalo de Puebla
+R035,América del Norte,México,Ruta Tapatía,Catedral de la Asunción de María Santísima,Teatro Degollado,Tlaquepaque,Basílica de Zapopan,San Juan de Dios Guadalajara
+R036,América del Norte,Estados Unidos,Ruta de California,Point Vicente Park,Abalone Cove Shoreline Park, Terranea Resort, Wayfarers Chapel, Pelican Cove Park
+R037,América del Norte,Estados Unidos,Ruta Noreste,Central Park,Times Square, Empire State Building, Rockefeller Center, Grand Central Terminal
+R038,América del Norte,Estados Unidos,Ruta Sureña,The French Quarter,Universal Studios Orlando,Savannah Historic District,Charleston Battery,Graceland
+R039,América del Norte,Estados Unidos,Ruta Washington DC,Capitolio,Casa Blanca,National Mall,Museo Smithsonian,Lincoln Memorial
+R040,América del Norte,Canadá,Ruta de Toronto,CN Tower,Harbourfront,Distillery District,Royal Ontario Museum,Kensington Market
+R041,América del Norte,Costa Rica,Ruta Natural,La Fortuna, Catarata La Fortuna, Butterfly Conservatory, Parque Ecológico Volcán Arenal, Plaza Deportes El castillo
+R042,África,Marruecos,Ruta Imperial,Saadian Tombs, El Badi Palace,Palacio Bahía,Mezquita Kutubía,Plaza Jemaa el-Fna
+R043,África,Sudáfrica,Ruta del Cabo,Bo-Kaap, V&A Waterfront, Signal Hill, Sea Point Promenade, Camps Bay Beach
+R044,África,Túnez,Ruta Histórica,Anfiteatro de El Jem,Medina de Túnez,Cartago,Museo del Bardo,Sidi Bou Said
+R045,África,Tanzania,Ruta Safari,Arusha,Meserani Snake Park,Mto wa Mbu,Mto Wa Mbu 23410,Tengeru
+R046,Oceanía,Australia,Ruta de Sídney,Sydney Opera House, Sydney Harbour Bridge, Bondi Beach, Taronga Zoo, Royal Botanic Garden
+R047,Oceanía,Australia,Ruta de Melbourne,Federation Square,Queen Victoria Market,Royal Botanic Gardens,Shrine of Remembrance, Southbank Promenade
+R048,Oceanía,Nueva Zelanda,Ruta Isla Sur,Christchurch,Lyttelton,Akaroa,Little River,Governors Bay
+R049,Oceanía,Nueva Zelanda,Ruta de Queenstown,Coronet Peak,Arrowtown,Lake Hayes, Gibbston Valley, Kawarau Bridge Bungy
+R050,Oceanía,Fiyi,Ruta Costera,Sri Siva Subramaniya Temple, Garden of the Sleeping Giant, Sigatoka Sand Dunes, Natadola Beach,Lawai 
+R051,Oceanía,Vanuatu,Ruta de Efate,Port Vila Market,Mele Cascades,Blue Lagoon,Eton Beach,Ekasup Cultural Village

@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap" rel="stylesheet">
+
+
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
@@ -39,11 +42,18 @@
                     <a class="btn btn-primary" href="#seccionResultado" id="btnEmpezar">Empezar</a>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <a  href="#seccionRutasFamosas" id="botonRutaFamosas">
+                      <button type="button" class="btn btn-warning btn-lg button-30">Ver Rutas Famosas</button>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="alert alert-warning alert-dismissible fade show oculto" id="alertaConexion" role="alert"></div>
+    <div class="alert alert-warning alert-dismissible fade show oculta" id="alertaConexion" role="alert"></div>
     <div class="section mapa" id="seccionResultado">
-            <div class="alert alert-primary oculto" id="alerta" role="alert">
+            <div class="alert alert-primary oculta" id="alerta" role="alert">
                 Ocurrio un error en la busqueda
             </div>
         <div class="container">
@@ -76,8 +86,137 @@
             </div>
         </div>  
     </div>
+<div class="section rutasFamosas oculta" id="seccionRutasFamosas">
+    <div class="container" >
+        <div id="carouselExampleInterval" class="carousel slide" id="carouselImagenes" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="2000">
+                    <img src="./jpgCarousel/americaDelNorte.jpg" class="d-block w-100" alt="América Del Norte">
+                    <button type="button" class="botonContinente" data-continente="América del Norte">América Del Norte
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="./jpgCarousel/americaDelSur.jpg" class="d-block w-100 imageTamano" alt="América Del Sur">
+                    <button type="button" class="botonContinente" data-continente="América del Sur">América Del Sur
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="./jpgCarousel/asia.jpg" class="d-block w-100 imageTamano" alt="Asia">
+                    <button type="button" class="botonContinente" data-continente="Asia">Asia
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="./jpgCarousel/Europaa.jpg" class="d-block w-100 imageTamano" alt="Europa">
+                    <button type="button" class="botonContinente" data-continente="Europa">Europa
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="./jpgCarousel/africa1.jpg" class="d-block w-100" alt="África">
+                    <button type="button" class="botonContinente" data-continente="África">África
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="./jpgCarousel/oceania.jpg" class="d-block w-100 imageTamano" alt="Oceanía">
+                    <button type="button" class="botonContinente" data-continente="Oceanía">Oceanía
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="row mt-4" id="contenedorRutasFamosas"></div>
+    </div>
+</div>
+<div class="section imaRutasFamosa oculta" id="sectionImagenesRuta">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner" id="carouselIma">
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
+    
+</div>
+<div class="section mapaRutaFamosa oculta" id="mapaRutaFamosa">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="card" style="width: 20rem;" id="cartaOptimaFamosa">
+                    <div class="card-body">
+                        <h5 class="card-title">Ruta Óptima</h5>
+                        <p class="card-text" id="textoRutaFamosa"></p>
+                    </div>
+                </div>
+                <button class="btn btn-secondary mt-3" id="btnSeguirExplorando">Seguir explorando rutas famosas</button>
+            </div>
+            <div class="col-8">
+                <div id="mapaFamosa" style="height: 500px;"></div>
+                <div id="leyendaColoresFamosa" class="mt-3 p-2 border rounded bg-light"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="card mt-5 shadow" style="width: 100%;">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Complejidad Computacional</h3>
+                    <p class="card-text">
+                        El análisis de la complejidad computacional del algoritmo del Vecino Más Cercano se basa en contar el número de operaciones necesarias en función del número de nodos <strong>n</strong> del grafo.
+                    </p>
+                    <ol>
+                        <li>
+                            <strong>Selección del nodo inicial:</strong> Se elige un nodo arbitrario como punto de partida. Esto se hace en tiempo constante:
+                            <span class="badge bg-secondary">O(1)</span>.
+                        </li>
+                        <li>
+                            <strong>Búsqueda del nodo más cercano:</strong> En cada iteración se evalúan los nodos restantes para encontrar el más cercano. En la primera iteración se consideran <strong>n−1</strong> nodos, luego <strong>n−2</strong>, y así sucesivamente.
+                        </li>
+                        <li>
+                            <strong>Total de comparaciones:</strong> La suma total de comparaciones necesarias es:<br>
+                            <code>(n−1) + (n−2) + ... + 1 = <strong>(n(n−1))/2</strong></code><br>
+                            Esta suma es de orden cuadrático: <span class="badge bg-info text-dark">O(n²)</span>.
+                        </li>
+                        <li>
+                            <strong>Retorno al nodo inicial:</strong> Tras visitar todos los nodos, se regresa al punto de inicio con una operación adicional: 
+                            <span class="badge bg-secondary">O(1)</span>.
+                        </li>
+                    </ol>
+                    <p class="card-text mt-3">
+                        <strong>Conclusión:</strong> La complejidad total del algoritmo se expresa como:<br>
+                        <code>O(1) + O(n²) + O(1) = O(n²)</code>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script type="module" src="./src/main.js"></script>
 </body>
 </html>

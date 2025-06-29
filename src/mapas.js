@@ -98,7 +98,7 @@ export function mostrarPuntoDePartida(lat, lon) {
   map.setView([lat, lon], 13);
 }
 
-export async function mostrarRutaOptima(ruta) {
+export async function mostrarRutaOptima(ruta,segmentos=null) {
   if (rutaLayer) {
     map.removeLayer(rutaLayer);
   }
@@ -107,7 +107,9 @@ export async function mostrarRutaOptima(ruta) {
 
   for (let i = 0; i < ruta.length - 1; i++) {
     try {
-      const segmento = await trazarRutaORS(ruta[i], ruta[i + 1]);
+      const segmento = segmentos && segmentos[i]
+        ? segmentos[i]
+        : await trazarRutaORS(ruta[i], ruta[i + 1]);
 
       if (!segmento || segmento.length === 0) {
         throw new Error("Ruta vacía");

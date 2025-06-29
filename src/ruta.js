@@ -105,6 +105,8 @@ if (listaDestinos) {
   let noVisitados = [...destinos];
   let actual = puntoPartida;
   const destinosOmitidos = [];
+  const segmentos = [];
+
 
   while (noVisitados.length > 0) {
     try {
@@ -122,7 +124,8 @@ if (listaDestinos) {
       });
 
       if (destinoMasCercano) {
-        await trazarRutaORS(actual, destinoMasCercano, false);
+        const segmento = await trazarRutaORS(actual, destinoMasCercano, false);
+        segmentos.push(segmento);
         ruta.push(destinoMasCercano);
         actual = destinoMasCercano;
         noVisitados.splice(indiceCercano, 1);
